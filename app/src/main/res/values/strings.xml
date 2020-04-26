@@ -12,4 +12,5 @@
     <string name="label4">성장 그래프</string>
     <string name="label5">일기장</string>
     <string name="label6">요람</string>
+    <string name="login_main">로그인</string>
 </resources>
