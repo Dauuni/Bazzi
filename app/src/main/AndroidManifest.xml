@@ -112,7 +112,7 @@
     </activity>
 
         <activity
-            android:name=".AppMain"
+            android:name=".Loading"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
