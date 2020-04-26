@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/controller">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="87dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/symbol" />
+
+    <EditText
+        android:id="@+id/edit_id"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="253dp"
+        android:background="#ffffff"
+        android:hint="아이디"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#cccccc"
+        android:textColorHint="#cccccc" />
+
+    <EditText
+        android:id="@+id/edit_password"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="192dp"
+        android:background="#ffffff"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#cccccc"
+        android:textColorHint="#cccccc" />
+
+    <Button
+        android:id="@+id/btn_signIn"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="131dp"
+        android:background="#A69ED5"
+        android:text="로그인"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_signUp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="78dp"
+        android:background="#A69ED5"
+        android:text="회원가입"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

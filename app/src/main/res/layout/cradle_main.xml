@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="#FFFfff">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/Cradle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp">
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/activity_main_drawer" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="35dp"
+                android:id="@+id/play_mode"
+                android:background="@drawable/play_mode"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="355dp"/>
+
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="35dp"
+                android:id="@+id/sleep_mode"
+                android:background="@drawable/sleep_mode"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="80dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sleep_baby"
+                android:background="@drawable/sleep_baby"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="155dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="60dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/play_baby"
+                android:background="@drawable/play_baby"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="435dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="60dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="300dp"/>
+
+            <Switch
+                android:id="@+id/switch2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="185dp"
+                android:layout_marginRight="70dp"
+                android:checked="true"
+                android:switchMinWidth="70dp"
+                android:thumb="@drawable/switch_thumb"
+                android:track="@drawable/switch_track_selector" />
+
+            <Switch
+                android:id="@+id/switch3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="470dp"
+                android:layout_marginRight="70dp"
+                android:checked="true"
+                android:switchMinWidth="70dp"
+                android:thumb="@drawable/switch_thumb"
+                android:track="@drawable/switch_track_selector" />
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#D7AFFF"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+</RelativeLayout>
