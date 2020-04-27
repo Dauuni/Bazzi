@@ -17,6 +17,49 @@
         android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="58dp"
+        android:layout_marginLeft="200dp"
+        android:background="@drawable/text_box"
+        android:id="@+id/textBox1"
+        android:textColor="#8F45C7"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="93dp"
+        android:layout_marginLeft="200dp"
+        android:background="@drawable/text_box"
+        android:id="@+id/textBox2"
+        android:gravity="center"
+        android:textColor="#8F45C7"/>
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="128dp"
+        android:layout_marginLeft="200dp"
+        android:background="@drawable/text_box"
+        android:id="@+id/textBox3"
+        android:gravity="center"
+        android:textColor="#8F45C7"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="175dp"/>
+
     <ImageButton
         android:layout_width="155dp"
         android:layout_height="110dp"

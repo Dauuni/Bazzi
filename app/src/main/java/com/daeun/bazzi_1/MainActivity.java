@@ -1,5 +1,6 @@
 package com.daeun.bazzi_1;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    static final int REQ_ADD_CONTACT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +95,30 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == REQ_ADD_CONTACT) {
+            if (resultCode == RESULT_OK) {
+
+                TextView textViewNo = (TextView) findViewById(R.id.textBox1);
+                String no = intent.getStringExtra("contact_no");
+                if (no != null)
+                    textViewNo.setText(no);
+
+                // Name 값을 String 타입 그대로 표시.
+                TextView textViewName = (TextView) findViewById(R.id.textBox2);
+                String name = intent.getStringExtra("contact_name");
+                if (name != null)
+                    textViewName.setText(name);
+
+                // Phone 값을 String 타입 그대로 표시.
+                TextView textViewPhone = (TextView) findViewById(R.id.textBox3);
+                String phone = intent.getStringExtra("contact_phone");
+                if (phone != null)
+                    textViewPhone.setText(phone);
+            }
+        }
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -130,6 +158,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Intent intentBaby = new Intent(MainActivity.this, MyBaby.class);
+            startActivityForResult(intentBaby, REQ_ADD_CONTACT);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
