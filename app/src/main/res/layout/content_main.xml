@@ -27,7 +27,7 @@
         android:background="@drawable/text_box"
         android:id="@+id/textBox1"
         android:textColor="#8F45C7"
-        android:gravity="center"/>
+        android:gravity="center" />
 
     <TextView
         android:layout_width="130dp"

@@ -1,8 +1,6 @@
 package com.daeun.bazzi_1;
 
-import android.content.ClipData;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -13,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -35,9 +32,6 @@ public class MainActivity extends AppCompatActivity
         ImageButton btnGraph = (ImageButton) findViewById(R.id.imageButton5);
         ImageButton btnDiary = (ImageButton) findViewById(R.id.imageButton6);
 
-        Intent intent_loading = new Intent(this, Loading.class);
-        startActivity(intent_loading);
-
         btnInform.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +43,7 @@ public class MainActivity extends AppCompatActivity
         btnCradle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(getApplicationContext(),Cradle.class);
+                Intent intent2 = new Intent(getApplicationContext(),Display.class);
                 startActivity(intent2);
             }
         });
