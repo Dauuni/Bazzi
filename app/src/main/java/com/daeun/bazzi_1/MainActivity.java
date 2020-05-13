@@ -1,6 +1,8 @@
 package com.daeun.bazzi_1;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -11,26 +13,58 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     static final int REQ_ADD_CONTACT = 1;
 
+    private static String TAG = "bazzi";
+
+    private static final String TAG_JSON="baby";
+    private static final String TAG_NAME = "babyName";
+    private static final String TAG_AGE ="babyAge";
+
+    ArrayList<HashMap<String, String>> mArrayList;
+    ListView mlistView;
+    String mJsonString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         ImageButton btnInform = (ImageButton) findViewById(R.id.imageButton1);
         ImageButton btnCradle = (ImageButton) findViewById(R.id.imageButton2);
         ImageButton btnSlumber = (ImageButton) findViewById(R.id.imageButton3);
         ImageButton btnSuyu = (ImageButton) findViewById(R.id.imageButton4);
         ImageButton btnGraph = (ImageButton) findViewById(R.id.imageButton5);
         ImageButton btnDiary = (ImageButton) findViewById(R.id.imageButton6);
+
+        mlistView = (ListView) findViewById(R.id.listView_main_list);
+        mArrayList = new ArrayList<>();
+
+        GetData task = new GetData();
+        task.execute("http://bazzi.dothome.co.kr/getjson.php");
 
         btnInform.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,28 +125,100 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == REQ_ADD_CONTACT) {
-            if (resultCode == RESULT_OK) {
+    private class GetData extends AsyncTask<String, Void, String>{
+        ProgressDialog progressDialog;
+        String errorString = null;
 
-                TextView textViewNo = (TextView) findViewById(R.id.textBox1);
-                String no = intent.getStringExtra("contact_no");
-                if (no != null)
-                    textViewNo.setText(no);
+        @Override
+        protected String doInBackground(String... params) {
 
-                // Name 값을 String 타입 그대로 표시.
-                TextView textViewName = (TextView) findViewById(R.id.textBox2);
-                String name = intent.getStringExtra("contact_name");
-                if (name != null)
-                    textViewName.setText(name);
+            String serverURL = params[0];
 
-                // Phone 값을 String 타입 그대로 표시.
-                TextView textViewPhone = (TextView) findViewById(R.id.textBox3);
-                String phone = intent.getStringExtra("contact_phone");
-                if (phone != null)
-                    textViewPhone.setText(phone);
+
+            try {
+
+                URL url = new URL(serverURL);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
+
+                httpURLConnection.setReadTimeout(5000);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.connect();
+
+
+                int responseStatusCode = httpURLConnection.getResponseCode();
+                Log.d(TAG, "response code - " + responseStatusCode);
+
+                InputStream inputStream;
+                if(responseStatusCode == HttpURLConnection.HTTP_OK) {
+                    inputStream = httpURLConnection.getInputStream();
+                }
+                else{
+                    inputStream = httpURLConnection.getErrorStream();
+                }
+
+
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                StringBuilder sb = new StringBuilder();
+                String line;
+
+                while((line = bufferedReader.readLine()) != null){
+                    sb.append(line);
+                }
+
+
+                bufferedReader.close();
+
+
+                return sb.toString().trim();
+
+
+            } catch (Exception e) {
+
+                Log.d(TAG, "InsertData: Error ", e);
+                errorString = e.toString();
+
+                return null;
             }
+
         }
+    }
+
+    private void showResult(){
+        try {
+            JSONObject jsonObject = new JSONObject(mJsonString);
+            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+
+            for(int i=0;i<jsonArray.length();i++){
+
+                JSONObject item = jsonArray.getJSONObject(i);
+
+                String name = item.getString(TAG_NAME);
+                String age = item.getString(TAG_AGE);
+
+                HashMap<String,String> hashMap = new HashMap<>();
+
+                hashMap.put(TAG_NAME, name);
+                hashMap.put(TAG_AGE, age);
+
+                mArrayList.add(hashMap);
+            }
+
+            ListAdapter adapter = new SimpleAdapter(
+                    MainActivity.this, mArrayList, R.layout.item_list,
+                    new String[]{TAG_NAME,null,TAG_AGE},
+                    new int[]{R.id.textView_list_name, R.id.textView_list_mw, R.id.textView_list_age}
+            );
+
+            mlistView.setAdapter(adapter);
+
+        } catch (JSONException e) {
+
+            Log.d(TAG, "showResult : ", e);
+        }
+
     }
 
     @Override

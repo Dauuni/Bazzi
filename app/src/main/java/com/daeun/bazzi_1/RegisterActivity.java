@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         et_id=findViewById(R.id.et_id);
         et_pass=findViewById(R.id.et_pass);
-        et_name=findViewById(R.id.et_name);
+        et_name=findViewById(R.id.et_bname);
         et_num=findViewById(R.id.et_num);
 
         btn_register=findViewById(R.id.btn_register);
@@ -64,11 +64,11 @@ public class RegisterActivity extends AppCompatActivity {
                 };
 
                 //서버로 volley를 이용해서 요청을 함.
-                RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userName,userNum,responseListener);
-                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(registerRequest);
+        RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userName,userNum,responseListener);
+        RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+        queue.add(registerRequest);
 
-            }
-        });
+    }
+});
     }
 }

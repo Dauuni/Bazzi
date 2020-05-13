@@ -39,7 +39,7 @@
         android:inputType="textPassword"/>
 
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/et_bname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -60,9 +60,9 @@
         android:hint="전화번호"
         android:inputType="number"
         android:textColor="#8F45C7"
-        app:layout_constraintEnd_toEndOf="@+id/et_name"
-        app:layout_constraintStart_toStartOf="@+id/et_name"
-        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+        app:layout_constraintEnd_toEndOf="@+id/et_bname"
+        app:layout_constraintStart_toStartOf="@+id/et_bname"
+        app:layout_constraintTop_toBottomOf="@+id/et_bname" />
 
     <Button
         android:id="@+id/btn_register"

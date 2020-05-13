@@ -5,38 +5,66 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MyBaby extends AppCompatActivity {
+
+    private EditText et_bname, et_age;
+    private Button baby_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_baby);
+        setContentView(R.layout.activity_my_baby);
 
-        Button buttonSave = (Button) findViewById(R.id.buttonSave) ;
-        buttonSave.setOnClickListener(new View.OnClickListener() {
+        et_bname=findViewById(R.id.et_bname);
+        et_age=findViewById(R.id.et_age);
+        baby_register=findViewById(R.id.baby_register);
+
+
+        //아기 등록 버튼 눌렀을 때
+        baby_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                //EditText에 입력된 현재 입력되어 있는 값을 get 해온다.
+                String babyName = et_bname.getText().toString();
+                String babyMW = "";
+                String babyAge = et_age.getText().toString();
 
-                EditText editTextNo = (EditText) findViewById(R.id.editTextNo) ;
-                intent.putExtra("contact_no", editTextNo.getText().toString()) ;
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if (success) {
+                                Toast.makeText(getApplicationContext(),"아기 등록에 성공하였습니다.",Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(MyBaby.this, MainActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(),"아기 등록에 실패하였습니다.",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
-                // Name 입력 값을 String 값으로 그대로 전달.
-                EditText editTextName = (EditText) findViewById(R.id.editTextName) ;
-                intent.putExtra("contact_name", editTextName.getText().toString()) ;
+                    }
+                };
 
-                // Phone 입력 값을 String 값으로 그대로 전달.
-                EditText editTextPhone = (EditText) findViewById(R.id.editTextPhone) ;
-                intent.putExtra("contact_phone", editTextPhone.getText().toString()) ;
-
-                setResult(RESULT_OK, intent) ;
-                finish() ;
-
+                //서버로 volley를 이용해서 요청을 함.
+                BabyRequest babyRequest = new BabyRequest(babyName, babyMW, babyAge,responseListener);
+                RequestQueue queue = Volley.newRequestQueue(MyBaby.this);
+                queue.add(babyRequest);
             }
         });
     }
-
 }
