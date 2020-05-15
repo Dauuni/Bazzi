@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 public class MyBaby extends AppCompatActivity {
 
-    private EditText et_bname, et_age;
+    private EditText et_bname, et_mw, et_age;
     private Button baby_register;
 
     @Override
@@ -26,6 +26,7 @@ public class MyBaby extends AppCompatActivity {
         setContentView(R.layout.activity_my_baby);
 
         et_bname=findViewById(R.id.et_bname);
+        et_mw=findViewById(R.id.et_mw);
         et_age=findViewById(R.id.et_age);
         baby_register=findViewById(R.id.baby_register);
 
@@ -36,7 +37,7 @@ public class MyBaby extends AppCompatActivity {
             public void onClick(View v) {
                 //EditText에 입력된 현재 입력되어 있는 값을 get 해온다.
                 String babyName = et_bname.getText().toString();
-                String babyMW = "";
+                String babyMW = et_mw.getText().toString();
                 String babyAge = et_age.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {

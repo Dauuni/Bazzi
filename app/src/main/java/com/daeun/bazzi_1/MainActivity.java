@@ -18,7 +18,6 @@ import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity
 
     private static final String TAG_JSON="baby";
     private static final String TAG_NAME = "babyName";
+    private static final String TAG_MW = "babyMW";
     private static final String TAG_AGE ="babyAge";
 
     ArrayList<HashMap<String, String>> mArrayList;
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity
         mArrayList = new ArrayList<>();
 
         GetData task = new GetData();
-        task.execute("http://bazzi.dothome.co.kr/getjson.php");
+        task.execute("http://bazzi.dothome.co.kr/BabyGetjson.php");
 
         btnInform.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +130,31 @@ public class MainActivity extends AppCompatActivity
         String errorString = null;
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog = ProgressDialog.show(MainActivity.this,
+                    "Please Wait", null, true, true);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            progressDialog.dismiss();
+            Log.d(TAG, "response  - " + result);
+
+            if (result == null){
+
+            }
+            else {
+
+                mJsonString = result;
+                showResult();
+            }
+        }
+
+        @Override
         protected String doInBackground(String... params) {
 
             String serverURL = params[0];
@@ -191,24 +216,26 @@ public class MainActivity extends AppCompatActivity
             JSONObject jsonObject = new JSONObject(mJsonString);
             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
 
-            for(int i=0;i<jsonArray.length();i++){
+            int i=jsonArray.length()-1;
 
                 JSONObject item = jsonArray.getJSONObject(i);
 
                 String name = item.getString(TAG_NAME);
+                String mw = item.getString(TAG_MW);
                 String age = item.getString(TAG_AGE);
 
                 HashMap<String,String> hashMap = new HashMap<>();
 
                 hashMap.put(TAG_NAME, name);
+                hashMap.put(TAG_MW,mw);
                 hashMap.put(TAG_AGE, age);
 
                 mArrayList.add(hashMap);
-            }
+
 
             ListAdapter adapter = new SimpleAdapter(
                     MainActivity.this, mArrayList, R.layout.item_list,
-                    new String[]{TAG_NAME,null,TAG_AGE},
+                    new String[]{TAG_NAME,TAG_MW,TAG_AGE},
                     new int[]{R.id.textView_list_name, R.id.textView_list_mw, R.id.textView_list_age}
             );
 

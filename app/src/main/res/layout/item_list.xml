@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="120dp">
 
     <TextView
         android:id="@+id/textView_list_name"
@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="190dp"
         android:layout_marginTop="6dp"
         android:background="@drawable/text_box"
         android:gravity="center"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="190dp"
         android:layout_marginTop="44dp"
         android:background="@drawable/text_box"
         android:gravity="center"
@@ -34,18 +34,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="82dp"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="190dp"
         android:background="@drawable/text_box"
         android:id="@+id/textView_list_age"
         android:gravity="center"
         android:textColor="#8F45C7"/>
-
-    <TextView
-        android:id="@+id/textView_list_num"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:layout_margin="5dp"
-        android:padding="5dp" />
 
 </RelativeLayout>

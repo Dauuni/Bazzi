@@ -20,7 +20,7 @@ public class BabyRequest extends StringRequest {
 
         map = new HashMap<>();
         map.put("babyName",babyName);
-        map.put("babyWM",babyMW);
+        map.put("babyMW",babyMW);
         map.put("babyAge",babyAge);
     }
 
