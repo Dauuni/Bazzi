@@ -3,8 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/controller">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/now_baby"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="241dp"
+        android:background="@drawable/line2" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="271dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/inform_rename" />
 
     <TextView
         android:id="@+id/baby_name"
@@ -13,26 +36,28 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="342dp"
         android:text="아기 이름 : "
-        android:textSize="24sp"
-        android:textColor="#000000"/>
+        android:textSize="16sp"
+        android:textColor="#A69ED5"/>
 
     <EditText
         android:id="@+id/et_bname"
-        android:layout_width="wrap_content"
+        android:background="@drawable/text_box2"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="330dp"
         android:layout_toEndOf="@+id/baby_mw"
         android:layout_toRightOf="@+id/baby_mw"
         android:ems="10"
         android:hint="이름을 입력하세요"
         android:inputType="textPersonName"
+        android:textSize="12sp"
         android:textColor="#000000"/>
 
     <TextView
@@ -42,25 +67,27 @@
         android:layout_below="@+id/baby_name"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="30dp"
         android:text="아기 성별 : "
-        android:textSize="24sp"
-        android:textColor="#000000"/>
+        android:textSize="16sp"
+        android:textColor="#A69ED5"/>
 
     <EditText
         android:id="@+id/et_mw"
-        android:layout_width="wrap_content"
+        android:background="@drawable/text_box2"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="231dp"
+        android:layout_marginTop="388dp"
         android:layout_toEndOf="@+id/baby_name"
         android:layout_toRightOf="@+id/baby_name"
         android:ems="10"
         android:hint="성별을 입력하세요"
+        android:textSize="12sp"
         android:inputType="textPersonName"
         android:textColor="#000000" />
 
@@ -71,27 +98,29 @@
         android:layout_below="@+id/baby_mw"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="40dp"
         android:text="개월수 : "
-        android:textSize="24sp"
-        android:textColor="#000000"/>
+        android:textSize="16sp"
+        android:textColor="#A69ED5"/>
 
     <EditText
         android:id="@+id/et_age"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/baby_age"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginBottom="-9dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="-15dp"
         android:layout_toEndOf="@+id/baby_age"
         android:layout_toRightOf="@+id/baby_age"
+        android:background="@drawable/text_box2"
         android:ems="10"
         android:hint="oo 개월"
         android:inputType="textPersonName"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/baby_register"
@@ -99,7 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="129dp"
+        android:layout_marginBottom="39dp"
         android:text="아기 등록"
         android:background="#A69ED5"
         android:textColor="#ffffff"/>
