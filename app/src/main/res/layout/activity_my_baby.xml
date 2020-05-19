@@ -13,11 +13,21 @@
         android:layout_marginTop="10dp"
         android:layout_alignParentTop="true"/>
 
+    <ListView
+        android:id="@+id/image_box2"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/image_box" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="241dp"
+        android:layout_marginTop="251dp"
         android:background="@drawable/line2" />
 
     <ImageView
@@ -126,11 +136,12 @@
         android:id="@+id/baby_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="39dp"
+        android:layout_marginTop="515dp"
         android:text="아기 등록"
         android:background="#A69ED5"
         android:textColor="#ffffff"/>
+
 
 </RelativeLayout>
