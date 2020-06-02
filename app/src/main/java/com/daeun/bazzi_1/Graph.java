@@ -9,18 +9,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class Test extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener{
+public class Graph extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener{
+
+    private EditText cm, kg;
+    private Button graph_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.activity_graph);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Test);
+        cm=findViewById(R.id.cm);
+        kg=findViewById(R.id.kg);
+        graph_register=findViewById(R.id.graph_register);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Graph);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -33,7 +42,7 @@ public class Test extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Test);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Graph);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -77,7 +86,7 @@ public class Test extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Test);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Graph);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

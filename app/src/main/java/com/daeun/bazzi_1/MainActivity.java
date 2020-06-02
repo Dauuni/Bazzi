@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity
         btnGraph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent5 = new Intent(getApplicationContext(),Test.class);
+                Intent intent5 = new Intent(getApplicationContext(),Graph.class);
                 startActivity(intent5);
             }
         });

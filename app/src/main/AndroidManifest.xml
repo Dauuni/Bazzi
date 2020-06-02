@@ -71,6 +71,11 @@
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Graph"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/label4">
+        </activity>
     </application>
 
 </manifest>
