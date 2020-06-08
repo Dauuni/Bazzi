@@ -12,6 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -32,7 +35,7 @@ import java.util.HashMap;
 public class Baby extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
-    private static String TAG = "mysql";
+    private static String TAG = "bazzi"; //실제로 실행할 때는 mysql로 바꾸기
 
     private static final String TAG_JSON="sensor";
     private static final String TAG_TEMP = "temp";
@@ -52,8 +55,26 @@ public class Baby extends AppCompatActivity
         mlistView = (ListView) findViewById(R.id.listView_main_list3);
         mArrayList = new ArrayList<>();
 
+        //camera 화면 보기
+        WebView webView = (WebView)findViewById(R.id.webView);
+        webView.setWebViewClient(new WebViewClient());
+        webView.setBackgroundColor(255);
+        //영상을 폭에 꽉 차게 할려고 했지만 먹히지 않음???
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setUseWideViewPort(true);
+        //이건 최신 버전에서는 사용하지 않게됨
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        //영상을 폭을 꽉 차게 하기 위해 직접 html태그로 작성함.
+        //webView.loadData("<html><head><style type='text/css'>body{margin:auto auto;text-align:center;} img{width:100%25;} div{overflow: hidden;} </style></head><body><div><img src='http://raspberrypi-ip:8080/stream/video.mjpeg'/></div></body></html>" ,"text/html",  "UTF-8");
+        webView.loadUrl("http://www.naver.com");
+        //webView.loadUrl("http://172.20.10.3:8091/?action=stream");
+
         Baby.GetData task = new Baby.GetData();
-        task.execute("http://172.20.10.3/phpinfo.php");
+        //task.execute("http://172.20.10.3/phpinfo.php");
+        task.execute("http://bazzi.dothome.co.kr/getjson.php");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Baby);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
