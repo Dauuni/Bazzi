@@ -1,7 +1,5 @@
 package com.daeun.bazzi_1;
 
-import android.support.annotation.Nullable;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
