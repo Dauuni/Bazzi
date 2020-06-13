@@ -1,6 +1,8 @@
 package com.daeun.bazzi_1;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -12,9 +14,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -51,6 +56,7 @@ public class Baby extends AppCompatActivity
         setContentView(R.layout.baby);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ImageButton reset = (ImageButton) findViewById(R.id.reset);
 
         mlistView = (ListView) findViewById(R.id.listView_main_list3);
         mArrayList = new ArrayList<>();
@@ -70,7 +76,7 @@ public class Baby extends AppCompatActivity
         //영상을 폭을 꽉 차게 하기 위해 직접 html태그로 작성함.
         //webView.loadData("<html><head><style type='text/css'>body{margin:auto auto;text-align:center;} img{width:100%25;} div{overflow: hidden;} </style></head><body><div><img src='http://raspberrypi-ip:8080/stream/video.mjpeg'/></div></body></html>" ,"text/html",  "UTF-8");
         //webView.loadUrl("http://www.naver.com");
-        webView.loadUrl("http://172.20.10.3:8091/?action=stream");
+        webView.loadUrl("http://172.20.10.3:8080/?action=stream");
 
         Baby.GetData task = new Baby.GetData();
         task.execute("http://172.20.10.3/phpinfo.php");
@@ -85,6 +91,16 @@ public class Baby extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_baby = new Intent(getApplicationContext(),Baby.class);
+                finish();
+                startActivity(intent_baby);
+            }
+        });
+
     }
 
     private class GetData extends AsyncTask<String, Void, String>{

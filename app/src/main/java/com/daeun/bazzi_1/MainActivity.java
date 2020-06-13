@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity
         btnDiary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent6 = new Intent(getApplicationContext(),Diary.class);
+                Intent intent6 = new Intent(getApplicationContext(),BabyDiary.class);
                 startActivity(intent6);
             }
         });

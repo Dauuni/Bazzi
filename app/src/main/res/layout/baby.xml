@@ -26,18 +26,29 @@
         android:id="@+id/Baby"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <WebView
-                android:layout_width="fill_parent"
-                android:layout_height="420dp"
                 android:id="@+id/webView"
+                android:layout_width="fill_parent"
+                android:layout_height="375dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="50dp"/>
+                android:layout_marginTop="50dp" />
+
+            <ImageButton
+                android:id="@+id/reset"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="445dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/reset" />
 
             <ListView
                 android:id="@+id/listView_main_list3"
@@ -45,7 +56,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="465dp" />
-
 
 
         </RelativeLayout>
@@ -59,6 +69,6 @@
             app:headerLayout="@layout/nav_header_main"
             app:menu="@menu/activity_main_drawer" />
 
-        </android.support.v4.widget.DrawerLayout>
+    </android.support.v4.widget.DrawerLayout>
 
 </RelativeLayout>
