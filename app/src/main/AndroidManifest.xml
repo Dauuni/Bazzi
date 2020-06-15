@@ -72,5 +72,4 @@
             android:label="@string/label4"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
 </manifest>
