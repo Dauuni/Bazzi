@@ -37,8 +37,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Baby extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+public class Baby extends AppCompatActivity {
 
     private static String TAG = "bazzi"; //실제로 실행할 때는 mysql로 바꾸기
 
@@ -49,6 +48,7 @@ public class Baby extends AppCompatActivity
     ArrayList<HashMap<String, String>> mArrayList;
     ListView mlistView;
     String mJsonString;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,9 @@ public class Baby extends AppCompatActivity
         mlistView = (ListView) findViewById(R.id.listView_main_list3);
         mArrayList = new ArrayList<>();
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.home);
+
         //camera 화면 보기
         WebView webView = (WebView)findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
@@ -68,7 +71,6 @@ public class Baby extends AppCompatActivity
         //영상을 폭에 꽉 차게 할려고 했지만 먹히지 않음???
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
-        //이건 최신 버전에서는 사용하지 않게됨
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -81,16 +83,6 @@ public class Baby extends AppCompatActivity
         Baby.GetData task = new Baby.GetData();
         task.execute("http://172.20.10.3/phpinfo.php");
         //task.execute("http://bazzi.dothome.co.kr/getjson.php");
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Baby);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setItemIconTintList(null);
-        navigationView.setNavigationItemSelectedListener(this);
 
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,13 +229,6 @@ public class Baby extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -251,29 +236,12 @@ public class Baby extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            Intent homeIntent = new Intent(this, MainActivity.class);
+            finish();
+            startActivity(homeIntent);
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Baby);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }

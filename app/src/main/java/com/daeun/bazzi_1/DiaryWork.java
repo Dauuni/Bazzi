@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.text.Editable;
 import android.text.Selection;
 import android.view.View;
@@ -55,7 +57,13 @@ public class DiaryWork extends Activity implements View.OnClickListener {
 
         delBtn = (Button)findViewById(R.id.delBtn);
         delBtn.setOnClickListener(this);
+
     }
+
+    public void onBackPressed() {
+        returnMain();
+    }
+
     public String readFile(Context c){ //저장된 파일 읽어오기
         FileInputStream in = null; //파일 입력 스트림
         ByteArrayOutputStream out = null; //읽은 내용을 임시로 저장할 버퍼
@@ -117,6 +125,7 @@ public class DiaryWork extends Activity implements View.OnClickListener {
             String cStr = content.getText().toString();
             saveFile(this, cStr);
             Toast.makeText(this,"파일이 저장되었습니다.",Toast.LENGTH_SHORT).show();
+            returnMain();
         }else if(v==delBtn){
             deleteFile(fName);
             content.setText("");

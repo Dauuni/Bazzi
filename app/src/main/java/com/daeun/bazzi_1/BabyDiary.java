@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-public class BabyDiary extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class BabyDiary extends AppCompatActivity implements View.OnClickListener {
     Button writeBtn;
 
     @Override
@@ -30,20 +30,13 @@ public class BabyDiary extends AppCompatActivity implements View.OnClickListener
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.home);
+
         loadList();  //작성된 일기 항목 가져오기
 
         writeBtn = (Button)findViewById(R.id.writeBtn);
         writeBtn.setOnClickListener(this);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Diary2);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setItemIconTintList(null);
-        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
     }
 
     public void loadList(){ //작성된 일기 항목 가져오는 작업
@@ -86,26 +79,10 @@ public class BabyDiary extends AppCompatActivity implements View.OnClickListener
         startActivity(it);
         finish();
     }
-//    @Override
-//    public boolean onCreateOptionsItemSelected(MenuItem item){ //옵션 메뉴 항목 클릭 시 자동 실행
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        ///noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings){
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//
-//
-//
-//    }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Baby);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Diary2);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -114,10 +91,8 @@ public class BabyDiary extends AppCompatActivity implements View.OnClickListener
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 
     @Override
@@ -128,33 +103,12 @@ public class BabyDiary extends AppCompatActivity implements View.OnClickListener
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            Intent homeIntent = new Intent(this, MainActivity.class);
+            finish();
+            startActivity(homeIntent);
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.Diary2);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
     }
 }
