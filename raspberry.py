@@ -62,21 +62,14 @@ while True:
        
     bpm1=result[1]                  #맥박 센서 값
     bpm2=bpm1.replace("'","")
-       
-    sound=result[2]                 #소리감지 센서 값
-    sound2=sound.replace("'","")
-        
-    gas=result[3]                   #가스 센서 값
-    gas3=gas.replace("\r\n","")
-    gas2=gas3.replace("'","")
     
-    print(temp2, bpm2, sound2, gas2)
+    print(temp2, bpm2)
 
     #데이터베이스 갱신    
-    sql="UPDATE sensor SET  temp=%s, bpm=%s, sound=%s, gas=%s;"
+    sql="UPDATE sensor SET  temp=%s, bpm=%s;"
 
     try:
-        curs.execute(sql,(temp2,bpm2,sound2,gas2))
+        curs.execute(sql,(temp2,bpm2))
         db.commit()
     except:
         print("ERROR")
