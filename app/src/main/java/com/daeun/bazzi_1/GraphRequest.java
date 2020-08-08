@@ -13,13 +13,13 @@ public class GraphRequest extends StringRequest {
     final static private  String URL ="http://bazzi.dothome.co.kr/graphRegister1.php";
     private Map<String, String> map;
 
-    public GraphRequest(String babyDate, Float babyCm, Float babyKg, Response.Listener<String> listener) {
+    public GraphRequest(String babyDate, Float babyCM, Float babyKG, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("babyDate",babyDate);
-        map.put("babyCm",babyCm+"");
-        map.put("babyKg",babyKg+"");
+        map.put("babyCM",babyCM+"");
+        map.put("babyKG",babyKG+"");
     }
 
     @Override

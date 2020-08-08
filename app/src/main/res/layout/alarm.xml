@@ -28,46 +28,99 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp">
 
-                <TimePicker
-                    android:id="@+id/timePicker"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="날짜"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="수유양ml"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+                <Button
+                    android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="80dp"
-                    android:timePickerMode="spinner" />
-
-                <Button
-                    android:id="@+id/btnStart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginStart="89dp"
-                    android:layout_marginLeft="89dp"
-                    android:layout_marginTop="330dp"
-                    android:text="START"
-                    android:background="#8F45C7"
+                    android:layout_weight="1"
+                    android:onClick="insert"
+                    android:text="저장"
+                    android:background="#8f45c7"
                     android:textColor="#ffffff"/>
 
                 <Button
-                    android:id="@+id/btnStop"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="330dp"
-                    android:layout_marginEnd="85dp"
-                    android:layout_marginRight="85dp"
-                    android:text="STOP"
-                    android:background="#8F45C7"
-                    android:textColor="#ffffff"/>
+                    android:layout_weight="1"
+                    android:background="#8f45c7"
+                    android:onClick="delete"
+                    android:text="삭제"
+                    android:textColor="#ffffff"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
 
-            </RelativeLayout>
+            <Button
+                android:id="@+id/button3"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="listUpdate"
+                android:text="보기"
+                android:background="#8f45c7"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+                </ListView>
+
+                <ListView
+                    android:id="@+id/listView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"

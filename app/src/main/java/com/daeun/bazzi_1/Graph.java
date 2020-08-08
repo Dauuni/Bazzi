@@ -78,8 +78,8 @@ public class Graph extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //EditText에 입력된 현재 입력되어 있는 값을 get 해온다.
-                float babyCm = Float.parseFloat(kg.getText().toString());
-                float babyKg = Float.parseFloat(cm.getText().toString());
+                float babyCM = Float.parseFloat(kg.getText().toString());
+                float babyKG = Float.parseFloat(cm.getText().toString());
                 String babyDate=Date.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -91,6 +91,7 @@ public class Graph extends AppCompatActivity {
                             if (success) {
                                 Toast.makeText(getApplicationContext(),"저장에 성공하였습니다.",Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Graph.this, Graph.class);
+                                finish();
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(),"저장에 실패하였습니다.",Toast.LENGTH_SHORT).show();
@@ -104,7 +105,7 @@ public class Graph extends AppCompatActivity {
                 };
 
                 //서버로 volley를 이용해서 요청을 함.
-                GraphRequest graphRequest = new GraphRequest(babyDate, babyCm, babyKg,responseListener);
+                GraphRequest graphRequest = new GraphRequest(babyDate, babyCM, babyKG,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Graph.this);
                 queue.add(graphRequest);
             }

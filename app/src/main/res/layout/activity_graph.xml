@@ -54,7 +54,7 @@
             />
 
         <EditText
-            android:id="@+id/cm"
+            android:id="@+id/kg"
             android:layout_width="60dp"
             android:layout_height="36sp"
             android:layout_marginLeft="105dp"
@@ -81,7 +81,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/kg"
+            android:id="@+id/cm"
             android:layout_width="60dp"
             android:layout_height="36sp"
             android:layout_marginLeft="105dp"
