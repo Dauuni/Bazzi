@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/baby_heat"
+        android:layout_width="140dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:background="@drawable/baby_heat"
+        android:gravity="center"
+        android:textColor="#8F45C7"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/baby_pulse"
+        android:layout_width="140dp"
+        android:layout_height="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/baby_pulse"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="#8F45C7"
+        android:textSize="30sp" />
+
+</RelativeLayout>

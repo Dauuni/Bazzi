@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/app_bar_main"
+    android:background="#FFFfff">
+
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="35dp"
+        android:background="@drawable/baby_inform"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ListView
+        android:id="@+id/listView_main_list"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="48dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="175dp"/>
+
+    <ImageButton
+        android:layout_width="155dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="196dp"
+        android:id="@+id/imageButton1"
+        android:background="@drawable/baby_status"/>
+
+    <ImageButton
+        android:layout_width="155dp"
+        android:layout_height="110dp"
+        android:id="@+id/imageButton2"
+        android:layout_marginLeft="185dp"
+        android:layout_marginTop="196dp"
+        android:background="@drawable/display"/>
+
+    <ImageButton
+        android:layout_width="155dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="311dp"
+        android:id="@+id/imageButton3"
+        android:background="@drawable/sleep1"/>
+
+    <ImageButton
+        android:layout_width="155dp"
+        android:layout_height="110dp"
+        android:id="@+id/imageButton4"
+        android:layout_marginLeft="185dp"
+        android:layout_marginTop="311dp"
+        android:background="@drawable/suyu"/>
+
+    <ImageButton
+        android:layout_width="155dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="426dp"
+        android:id="@+id/imageButton5"
+        android:background="@drawable/graph1"/>
+
+    <ImageButton
+        android:layout_width="155dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="185dp"
+        android:layout_marginTop="426dp"
+        android:id="@+id/imageButton6"
+        android:background="@drawable/diary1"/>
+
+</RelativeLayout>

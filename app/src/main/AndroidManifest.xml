@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.daeun.bazzi_1">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Login"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Baby"
+            android:label="@string/label1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Slumber"
+            android:label="@string/label3"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Alarm"
+            android:label="@string/label2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BabyDiary"
+            android:label="@string/label5"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DiaryWork"
+            android:label="@string/label5"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Display"
+            android:label="@string/label6"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Loading"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MyBaby"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Graph"
+            android:label="@string/label4"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>
