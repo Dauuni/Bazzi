@@ -9,10 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/baby_inform1"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:textSize="24sp"
-        android:paddingBottom="24sp"
+        android:textSize="20sp"
         android:textColor="#A69ED5"/>
 
     <TextView
@@ -21,18 +20,16 @@
         android:id="@+id/baby_inform2"
         android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true"
-        android:paddingBottom="12sp"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textColor="#A69ED5"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/baby_inform3"
-        android:layout_marginTop="100dp"
-        android:paddingBottom="12sp"
+        android:layout_marginTop="130dp"
         android:layout_centerHorizontal="true"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textColor="#A69ED5"/>
 
 </RelativeLayout>

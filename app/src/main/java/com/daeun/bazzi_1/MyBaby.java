@@ -202,9 +202,9 @@ public class MyBaby extends AppCompatActivity {
 
             HashMap<String,String> hashMap = new HashMap<>();
 
-            hashMap.put(TAG_NAME, name);
-            hashMap.put(TAG_MW,mw);
-            hashMap.put(TAG_AGE, age);
+            hashMap.put(TAG_NAME, "이름 : "+ name);
+            hashMap.put(TAG_MW,"성별 : "+ mw);
+            hashMap.put(TAG_AGE, "개월수 : "+ age);
 
             mArrayList1.add(hashMap);
 

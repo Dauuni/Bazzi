@@ -2,8 +2,13 @@ package com.daeun.bazzi_1;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,21 +16,27 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -40,6 +51,9 @@ public class MainActivity extends AppCompatActivity
     private static final String TAG_NAME = "babyName";
     private static final String TAG_MW = "babyMW";
     private static final String TAG_AGE ="babyAge";
+
+    private final int GET_GALLERY_IMAGE = 200;
+    private ImageView imageview;
 
     ArrayList<HashMap<String, String>> mArrayList;
     ListView mlistView;
@@ -60,11 +74,21 @@ public class MainActivity extends AppCompatActivity
         ImageButton btnGraph = (ImageButton) findViewById(R.id.imageButton5);
         ImageButton btnDiary = (ImageButton) findViewById(R.id.imageButton6);
 
+        imageview = (ImageView)findViewById(R.id.imageView);
+
         mlistView = (ListView) findViewById(R.id.listView_main_list);
         mArrayList = new ArrayList<>();
 
         GetData task = new GetData();
         task.execute("http://bazzi.dothome.co.kr/BabyGetjson.php");
+
+        imageview.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                startActivityForResult(intent, GET_GALLERY_IMAGE);
+            }
+        });
 
         btnInform.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +147,47 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
+
+    }
+
+    public String BitMapToString(Bitmap bitmap){
+        ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);    //bitmap compress
+        byte [] arr=baos.toByteArray();
+        String image= Base64.encodeToString(arr, Base64.DEFAULT);
+        String temp="";
+        try{
+            temp="&imagedevice="+ URLEncoder.encode(image,"utf-8");
+        }catch (Exception e){
+            Log.e("exception",e.toString());
+        }
+        return temp;
+    }
+
+    //bitmap 바꾸는거 해보기!!!!!!!!!!!!!
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri selectedImageUri = data.getData();
+            imageview.setImageURI(selectedImageUri);
+        }
+    }
+
+    private Bitmap resize(Bitmap bm){
+        Configuration config=getResources().getConfiguration();
+        if(config.smallestScreenWidthDp>=800)
+            bm = Bitmap.createScaledBitmap(bm, 400, 240, true);
+        else if(config.smallestScreenWidthDp>=600)
+            bm = Bitmap.createScaledBitmap(bm, 300, 180, true);
+        else if(config.smallestScreenWidthDp>=400)
+            bm = Bitmap.createScaledBitmap(bm, 200, 120, true);
+        else if(config.smallestScreenWidthDp>=360)
+            bm = Bitmap.createScaledBitmap(bm, 180, 108, true);
+        else
+            bm = Bitmap.createScaledBitmap(bm, 160, 96, true);
+        return bm;
     }
 
     private class GetData extends AsyncTask<String, Void, String>{
@@ -258,28 +323,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -290,9 +333,9 @@ public class MainActivity extends AppCompatActivity
             Intent intentBaby = new Intent(MainActivity.this, MyBaby.class);
             startActivityForResult(intentBaby, REQ_ADD_CONTACT);
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
+        }  else if (id == R.id.nav_slideshow) {
+            Intent  intentUse = new Intent (MainActivity.this, Use.class);
+            startActivityForResult(intentUse,REQ_ADD_CONTACT);
 
         }
 

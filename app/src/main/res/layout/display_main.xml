@@ -28,6 +28,40 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="뽀로로의 에코 라이브"
+                android:textSize="30dp"
+                android:layout_marginTop="110dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#9C27B0"/>
+
+
+            <ImageView
+                android:id="@+id/imageButton1"
+                android:layout_width="257dp"
+                android:layout_height="221dp"
+                android:layout_marginTop="189dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/disp" />
+
+
+            <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="85dp"
+                    android:layout_marginTop="455dp"
+                    android:background="@drawable/playh" />
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="215dp"
+                    android:layout_marginTop="455dp"
+                    android:background="@drawable/stoph" />
         </RelativeLayout>
 
     </android.support.v4.widget.DrawerLayout>

@@ -36,7 +36,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="83dp"
-                android:src="@drawable/heartbeat" />
+                android:src="@drawable/danger" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -53,7 +53,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="258dp"
-                android:src="@drawable/sound" />
+                android:src="@drawable/ddong" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -68,9 +68,9 @@
                 android:layout_height="150dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="35dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="449dp"
-                android:src="@drawable/star" />
+                android:src="@drawable/cry" />
 
             <Switch
                 android:id="@+id/switch1"
@@ -131,7 +131,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#D7AFFF"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
 
     </android.support.design.widget.AppBarLayout>
 

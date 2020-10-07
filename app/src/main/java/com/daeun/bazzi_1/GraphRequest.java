@@ -1,7 +1,5 @@
 package com.daeun.bazzi_1;
 
-import android.support.annotation.Nullable;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
@@ -12,15 +10,16 @@ import java.util.Map;
 public class GraphRequest extends StringRequest {
 
     // 서버 url 설정 (php 파일 연동)
-    final static private  String URL ="http://bazzi.dothome.co.kr/GraphRegister.php";
+    final static private  String URL ="http://bazzi.dothome.co.kr/graphRegister1.php";
     private Map<String, String> map;
 
-    public GraphRequest(String babyCm,String babyKg,Response.Listener<String> listener) {
+    public GraphRequest(String babyDate, Float babyCM, Float babyKG, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("babyCm",babyCm);
-        map.put("babyKg",babyKg);
+        map.put("babyDate",babyDate);
+        map.put("babyCM",babyCM+"");
+        map.put("babyKG",babyKG+"");
     }
 
     @Override
