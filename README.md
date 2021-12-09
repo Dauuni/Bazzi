@@ -13,7 +13,7 @@
 
 ## Develop Period
 
-![](/assets/img/26.JPG){: width="600" height="400"}
+![26](https://user-images.githubusercontent.com/64301855/145396638-c37bec6f-9f89-462f-bea1-8588c795d7c7.JPG)
 <br>
 
 ## Techique
