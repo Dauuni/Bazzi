@@ -113,9 +113,9 @@
 
 | img | contents |
 |:----:|----|
-|![27](https://user-images.githubusercontent.com/64301855/145397058-e2504be8-ec28-4a10-9f1c-f01a1ced1f74.jpg){: width="350px" height="280px"}|- 요람 외부 모습<br> - 요람의 옆면에 같은 색의 천을 덧대어 디스플레이를 장착할 거치대를 고정|
-|![](/assets/img/28.jpg){: width="350px" height="280px"}|- 위쪽에서 본 전체적인 요람 내부 모습|
-|![](/assets/img/29.jpg){: width="350px" height="280px"}|- 라즈베리파이에 부착된 유선 스피커를 통해 영상의 소리가 출력|
-|![](/assets/img/30.jpg){: width="350px" height="280px"}|- 디스플레이 위쪽에 부착된 카메라를 통해 아기의 모습을 실시간으로 모니터링 가능<br>- 디스플레이로 영상을 송출하여 아기의 관심을 끌어주면서 아기의 이마가 온도 센서를 향해 있게 되면서 체온 측정에 도움을 줌|
-|![](/assets/img/31.jpg){: width="350px" height="280px"}|- 요람 안쪽에 흰색 천을 덧대어 시리얼 통신 선과 온도 센서의 선을 가려줌과 동시에 소리감지 센서의 필요 부분만 빼줌|
-|![](/assets/img/32.jpg){: width="350px" height="280px"}|- 아기가 소리를 내면 센서에서 인식<br>- 아기의 발목 부분에 맥박 센서를 부착하여 맥박 측정|
+|<img src="https://user-images.githubusercontent.com/64301855/145397058-e2504be8-ec28-4a10-9f1c-f01a1ced1f74.jpg" width="350px" height="280px">|- 요람 외부 모습<br> - 요람의 옆면에 같은 색의 천을 덧대어 디스플레이를 장착할 거치대를 고정|
+|<img src="https://user-images.githubusercontent.com/64301855/145397062-23f97c1a-91c6-40a4-8561-136bf198df3d.jpg" width="350px" height="280px">|- 위쪽에서 본 전체적인 요람 내부 모습|
+|<img src="https://user-images.githubusercontent.com/64301855/145397066-4c18c475-8730-49a9-a92e-1ef5b08d3b1f.jpg" width="350px" height="280px">|- 라즈베리파이에 부착된 유선 스피커를 통해 영상의 소리가 출력|
+|<img src="https://user-images.githubusercontent.com/64301855/145397069-e2870492-407e-4a2f-9294-d295175d50cb.jpg" width="350px" height="280px">|- 디스플레이 위쪽에 부착된 카메라를 통해 아기의 모습을 실시간으로 모니터링 가능<br>- 디스플레이로 영상을 송출하여 아기의 관심을 끌어주면서 아기의 이마가 온도 센서를 향해 있게 되면서 체온 측정에 도움을 줌|
+|<img src="https://user-images.githubusercontent.com/64301855/145397017-0dd05299-ef43-4139-9325-fb59c09e7621.jpg" width="350px" height="280px">|- 요람 안쪽에 흰색 천을 덧대어 시리얼 통신 선과 온도 센서의 선을 가려줌과 동시에 소리감지 센서의 필요 부분만 빼줌|
+|<img src="https://user-images.githubusercontent.com/64301855/145397020-4ef585a7-0e9b-4e3b-9c18-3a3fedaf7bee.jpg" width="350px" height="280px">|- 아기가 소리를 내면 센서에서 인식<br>- 아기의 발목 부분에 맥박 센서를 부착하여 맥박 측정|
