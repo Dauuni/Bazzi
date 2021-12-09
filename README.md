@@ -70,39 +70,39 @@
 
 **▶ APP 아이콘**
 
-![](/assets/img/8.jpg)<br>
+![8](https://user-images.githubusercontent.com/64301855/145397023-19483243-98af-4b51-9019-c73ff31e2a52.jpg)<br>
 
 **▶ App 메인화면, Navigation Drawer**
 
 | 메인화면 | Navigation | 아기 정보 수정 및 등록 화면 |
 |:-------:|:--------:|:--------:|
-| ![](/assets/img/9.jpg) | ![](/assets/img/10.jpg) | ![](/assets/img/11.jpg) |
+| ![9](https://user-images.githubusercontent.com/64301855/145397026-d67ee371-14dc-402d-a79d-d1bbe19b36e2.jpg) | ![10](https://user-images.githubusercontent.com/64301855/145397028-04213fc2-c1b7-4003-bf8d-f6c794a1742d.jpg) | ![11](https://user-images.githubusercontent.com/64301855/145397029-e2dae281-9cc7-4d46-b957-24c471d92978.jpg) |
 
 <br>
 
 **▶ App과 데이터베이스 연동**
 
-![](/assets/img/12.jpg)<br>
+![12](https://user-images.githubusercontent.com/64301855/145397031-16e94fde-2f44-4dd5-8fe4-0e30d5f1a811.jpg)<br>
 
 **▶ App 기능 화면**
 
 | 아기 상태 화면 | 알림 화면 | 디스플레이 화면 | 수유 화면 |
 |:--------:|:--------:|:--------:|:--------:|
-| ![](/assets/img/13.jpg) | ![](/assets/img/14.jpg) | ![](/assets/img/15.jpg) |  ![](/assets/img/16.jpg)  |
+| ![13](https://user-images.githubusercontent.com/64301855/145397033-2a815e75-34f4-4ea9-b1f4-e0db163c8d79.jpg) | ![14](https://user-images.githubusercontent.com/64301855/145397034-62fd9a1b-2e28-4485-b740-78afaafcda20.jpg) | ![15](https://user-images.githubusercontent.com/64301855/145397035-ac64075d-5c62-4616-a176-627c7c9bb928.jpg) |  ![16](https://user-images.githubusercontent.com/64301855/145397037-83aa460c-b36d-4deb-bbfb-28249ffd22f1.jpg)  |
 
 <br>
 
 | 일기장 리스트 화면 | 작성 화면 | 성장 그래프 화면 |
 |:-------:|:-------:|:-------:|
-| ![](/assets/img/17.jpg) | ![](/assets/img/18.jpg) | ![](/assets/img/19.jpg) |
+| ![17](https://user-images.githubusercontent.com/64301855/145397038-2a61b526-78b9-4760-9d0e-2e82d5370d77.jpg) | ![18](https://user-images.githubusercontent.com/64301855/145397039-19894159-9d4a-41f8-a742-3ebf7304bb6e.jpg) | ![19](https://user-images.githubusercontent.com/64301855/145397043-b12ba5a9-3ba7-49b0-a4e4-aa1571697b89.jpg) |
 
 <br>
 
 **▶ App 사용 방법 화면**
 
-|![](/assets/img/20.jpg)|![](/assets/img/21.jpg)|![](/assets/img/22.jpg)|
+|![20](https://user-images.githubusercontent.com/64301855/145397044-3cde195d-e945-48ce-8fc4-8f7a059cbbf7.jpg)|![21](https://user-images.githubusercontent.com/64301855/145397046-d3712932-78a7-4c27-9652-cec61a04928e.jpg)|![22](https://user-images.githubusercontent.com/64301855/145397048-a2313e04-7a2b-4e68-a5c3-43e3faed2011.jpg)|
 |:----:|:----:|:----:|
-|![](/assets/img/23.jpg)|![](/assets/img/24.jpg)|![](/assets/img/25.jpg)|
+|![23](https://user-images.githubusercontent.com/64301855/145397049-5fd95006-8e45-4ac1-a7f9-9adb868226d7.jpg)|![24](https://user-images.githubusercontent.com/64301855/145397052-879fc841-15d5-416a-b114-a3987a06c880.jpg)|![25](https://user-images.githubusercontent.com/64301855/145397054-fbc983ea-162f-437f-bcd0-82874f407390.jpg)|
 
 
 <br><br>
@@ -113,7 +113,7 @@
 
 | img | contents |
 |:----:|----|
-|![](/assets/img/27.jpg){: width="350px" height="280px"}|- 요람 외부 모습<br> - 요람의 옆면에 같은 색의 천을 덧대어 디스플레이를 장착할 거치대를 고정|
+|![27](https://user-images.githubusercontent.com/64301855/145397058-e2504be8-ec28-4a10-9f1c-f01a1ced1f74.jpg){: width="350px" height="280px"}|- 요람 외부 모습<br> - 요람의 옆면에 같은 색의 천을 덧대어 디스플레이를 장착할 거치대를 고정|
 |![](/assets/img/28.jpg){: width="350px" height="280px"}|- 위쪽에서 본 전체적인 요람 내부 모습|
 |![](/assets/img/29.jpg){: width="350px" height="280px"}|- 라즈베리파이에 부착된 유선 스피커를 통해 영상의 소리가 출력|
 |![](/assets/img/30.jpg){: width="350px" height="280px"}|- 디스플레이 위쪽에 부착된 카메라를 통해 아기의 모습을 실시간으로 모니터링 가능<br>- 디스플레이로 영상을 송출하여 아기의 관심을 끌어주면서 아기의 이마가 온도 센서를 향해 있게 되면서 체온 측정에 도움을 줌|
